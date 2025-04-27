@@ -2,8 +2,15 @@ const rootElement = document.createElement("div");
 rootElement.id = "root";
 document.body.appendChild(rootElement);
 
-const element = <div className="app-container">
-    <p>Это абзац внутри JSX.</p>
-</div>;
+const props = {
+    className: "default-class",
+    children: "Заглушка",
+    id: "test-id"
+};
+
+const actualText = "Привет, JSX!";
+const className  = "my-container";
+
+const element = <div {...props} className={className} children={actualText} />;
 
 ReactDOM.createRoot(rootElement).render(element);
