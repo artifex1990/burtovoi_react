@@ -1,9 +1,9 @@
-const element = React.createElement(
-    'div', {
-        className: 'app-container'
-    }, 
-    'Моё первое приложение',
-    React.createElement('p', {key: '1'}, 'Это первый параграф')
-);
+const rootElement = document.createElement("div");
+rootElement.id = "root";
+document.body.appendChild(rootElement);
 
-ReactDOM.createRoot(document.getElementById('root')).render(element);
+const element = <div className="app-container">
+    <p>Это абзац внутри JSX.</p>
+</div>;
+
+ReactDOM.createRoot(rootElement).render(element);
