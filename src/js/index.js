@@ -2,19 +2,22 @@ const rootElement = document.createElement("div");
 rootElement.id = "root";
 document.body.appendChild(rootElement);
 
-const MathResult = ({a, b}) => {
+const root = ReactDOM.createRoot(rootElement);
+let counter = 0;
+
+function rerenderCounter() {
+    const element = <Counter counter={counter}/>;
+    counter++;
+    root.render(element);
+}
+
+const Counter = ({counter}) => {
     return (
         <div>
-            <span>{a + b !== 0 ? `Сумма равна ${a + b}` : 'Сумма ничему не равна'}</span>
+            <span>Counter: {counter}</span>
         </div>
     );
 }
 
-const element = (
-    <>
-        <MathResult a={1} b={2}/>
-        <MathResult a={0} b={0}/>
-    </>
-);
-
-ReactDOM.createRoot(rootElement).render(element);
+rerenderCounter();
+setInterval(rerenderCounter, 2000);
