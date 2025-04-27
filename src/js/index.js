@@ -2,12 +2,19 @@ const rootElement = document.createElement("div");
 rootElement.id = "root";
 document.body.appendChild(rootElement);
 
-const Message = (props) => <div className="message">{props.children}</div>;
-const app = (
+const MathResult = ({a, b}) => {
+    return (
+        <div>
+            <span>{a + b !== 0 ? `Сумма равна ${a + b}` : 'Сумма ничему не равна'}</span>
+        </div>
+    );
+}
+
+const element = (
     <>
-        <Message>Привет, мир!</Message>
-        <Message>Пока, мир!</Message>
+        <MathResult a={1} b={2}/>
+        <MathResult a={0} b={0}/>
     </>
 );
 
-ReactDOM.createRoot(rootElement).render(app);
+ReactDOM.createRoot(rootElement).render(element);
